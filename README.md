@@ -2,7 +2,7 @@
 
 **Azure Cloud Lab Series — Part 1 of 4**
 
-This project provisions a fully functional on-premises Active Directory environment hosted inside Microsoft Azure. All configuration is performed through the Azure Portal
+This project provisions a fully functional on-premises Active Directory environment hosted inside Microsoft Azure. All configuration is performed through the Azure Portal and Windows Server GUI — no CLI or scripting is used.
 
 ---
 
@@ -73,7 +73,7 @@ corp.local
 4. Select your subscription and region
 5. Click **Review + Create** → **Create**
 
-![Step 1](screenshots/Screenshot_1.png)
+![Step 1](screenshots/Screenshot 1.png)
 *Figure 1 — Resource group RG-Project1-OnPrem successfully created*
 
 ---
@@ -86,7 +86,7 @@ corp.local
 4. Create a subnet named `Subnet-DC`
 5. Click **Review + Create** → **Create**
 
-![Step 2](screenshots/Screenshot_2.png)
+![Step 2](screenshots/Screenshot 2.png)
 *Figure 2 — VNet-OnPrem deployment completed successfully*
 
 ---
@@ -101,7 +101,7 @@ corp.local
 6. Networking: VNet `VNet-OnPrem`, Subnet `Subnet-DC`, Public IP enabled, NSG allowing RDP (port 3389)
 7. Click **Review + Create** → **Create**
 
-![Step 3](screenshots/Screenshot_3.png)
+![Step 3](screenshots/Screenshot 3.png)
 *Figure 3 — DC1 VM deployment completed — VM, NIC, NSG, and Public IP all provisioned successfully*
 
 ---
@@ -116,7 +116,7 @@ corp.local
 4. Enter `10.0.1.5` → click **Save**
 5. Update the VNet **Custom DNS** setting to `10.0.1.5`
 
-![Step 4](screenshots/Screenshot_4.png)
+![Step 4](screenshots/Screenshot 4.png)
 *Figure 4 — DC1 NIC showing static private IP 10.0.1.5 confirmed*
 
 ---
@@ -128,7 +128,7 @@ corp.local
 3. Log in with the administrator credentials set during VM creation
 4. Server Manager launches automatically — confirm 0 roles installed
 
-![Step 5](screenshots/Screenshot_5.png)
+![Step 5](screenshots/Screenshot 5.png)
 *Figure 5 — Server Manager Dashboard on DC1 — clean baseline, no roles installed*
 
 ---
@@ -141,7 +141,7 @@ corp.local
 4. Accept the additional features prompt → click through to **Install**
 5. Confirm the red alert badge appears — promotion is pending
 
-![Step 6](screenshots/Screenshot_6.png)
+![Step 6](screenshots/Screenshot 6.png)
 *Figure 6 — AD DS role installed — alert badge indicates promotion required*
 
 ---
@@ -156,7 +156,7 @@ corp.local
 6. Click **Next** through all screens → **Install**
 7. DC1 reboots — after reboot confirm AD DS and DNS tiles show green
 
-![Step 7](screenshots/Screenshot_7.png)
+![Step 7](screenshots/Screenshot 7.png)
 *Figure 7 — Server Manager post-promotion — AD DS, DNS, and File and Storage Services all active*
 
 ---
@@ -171,7 +171,7 @@ corp.local
    - Host (A) → zone apex → `10.0.1.5`
    - Host (A) → `dc1` → `10.0.1.5` (static)
 
-![Step 8](screenshots/Screenshot_8.png)
+![Step 8](screenshots/Screenshot 8.png)
 *Figure 8 — DNS Manager — corp.local Forward Lookup Zone with all required records*
 
 ---
@@ -190,7 +190,7 @@ corp.local
 | `_CORP_GROUPS` | Security and distribution groups |
 | `_SERVICE_ACCOUNTS` | Service and automation accounts |
 
-![Step 9](screenshots/Screenshot_9.png)
+![Step 9](screenshots/Screenshot 9.png)
 *Figure 9 — Five custom OUs created under corp.local*
 
 ---
@@ -209,7 +209,7 @@ corp.local
 4. Uncheck *User must change password at next logon*
 5. Click **Finish**
 
-![Step 10](screenshots/Screenshot_10.png)
+![Step 10](screenshots/Screenshot 10.png)
 *Figure 10 — John Smith and Jane Doe created in _CORP_USERS OU*
 
 ---
@@ -225,7 +225,7 @@ corp.local
 
 > **Azure AD Auto-Join:** CLIENT1 may auto-join Entra ID during provisioning. Disconnect before joining the on-premises domain: Settings → Accounts → Access work or school → Disconnect.
 
-![Step 11](screenshots/Screenshot_11.png)
+![Step 11](screenshots/Screenshot 11.png)
 *Figure 11 — CLIENT1 Windows 10 VM deployment completed successfully*
 
 ---
@@ -239,7 +239,7 @@ corp.local
 5. Confirm the *Welcome to the corp.local domain* dialog
 6. Restart CLIENT1
 
-![Step 12](screenshots/Screenshot_12.png)
+![Step 12](screenshots/Screenshot 12.png)
 *Figure 12 — Welcome to the corp.local domain confirmation on CLIENT1*
 
 ---
@@ -250,7 +250,7 @@ corp.local
 2. Log in as `corp\jsmith` using John Smith's domain password
 3. Windows builds the domain profile — login confirmed
 
-![Step 13](screenshots/Screenshot_13.png)
+![Step 13](screenshots/Screenshot 13.png)
 *Figure 13 — John Smith domain login successful on CLIENT1*
 
 ---
@@ -264,7 +264,7 @@ corp.local
    ```
 3. Expected output: `corp\jsmith`
 
-![Step 14](screenshots/Screenshot_14.png)
+![Step 14](screenshots/Screenshot 14.png)
 *Figure 14 — whoami confirms corp\jsmith — domain-authenticated session verified*
 
 ---
@@ -277,7 +277,7 @@ corp.local
    ```
 2. Expected output: `Domain:    corp.local`
 
-![Step 15](screenshots/Screenshot_15.png)
+![Step 15](screenshots/Screenshot 15.png)
 *Figure 15 — systeminfo confirms Domain: corp.local*
 
 ---
@@ -289,7 +289,7 @@ corp.local
 3. Navigate to **corp.local** → **_CORP_COMPUTERS**
 4. Confirm **CLIENT1** appears with type **Computer**
 
-![Step 16](screenshots/Screenshot_16.png)
+![Step 16](screenshots/Screenshot 16.png)
 *Figure 16 — CLIENT1 registered in _CORP_COMPUTERS OU — domain join fully verified*
 
 ---
