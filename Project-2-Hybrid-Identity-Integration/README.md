@@ -68,7 +68,7 @@ Entra ID tenants use a default `.onmicrosoft.com` domain. A custom, routable dom
 **Entra Admin Center → left menu → Domain names.**
 Existing tenant domains visible (`Mocktest909.onmicrosoft.com` listed as primary).
 
-![Phase 1 — Step 1: Navigate to Entra ID Custom Domain Names](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%201.png)
+![Phase 1 — Step 1: Navigate to Entra ID Custom Domain Names](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%201.png)
 
 ---
 
@@ -76,7 +76,7 @@ Existing tenant domains visible (`Mocktest909.onmicrosoft.com` listed as primary
 
 Click **+ Add custom domain** → enter `cloudidlab.net` in the side panel → click **Add domain**.
 
-![Phase 1 — Step 2: Add cloudidlab.net as Custom Domain](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%202.png)
+![Phase 1 — Step 2: Add cloudidlab.net as Custom Domain](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%202.png)
 
 ---
 
@@ -84,7 +84,7 @@ Click **+ Add custom domain** → enter `cloudidlab.net` in the side panel → c
 
 Entra ID displays the TXT record values: Alias: `@`, Destination: [verification string], TTL: `3600`.
 
-![Phase 1 — Step 3: Retrieve TXT Verification Record](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%203.png)
+![Phase 1 — Step 3: Retrieve TXT Verification Record](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%203.png)
 
 ---
 
@@ -92,7 +92,7 @@ Entra ID displays the TXT record values: Alias: `@`, Destination: [verification 
 
 **GoDaddy DNS Management → new TXT record →** Type: `TXT`, Name: `@`, Value: [verification string] → **Save**.
 
-![Phase 1 — Step 4: Add TXT Record at GoDaddy](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%204.png)
+![Phase 1 — Step 4: Add TXT Record at GoDaddy](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%204.png)
 
 ---
 
@@ -100,7 +100,7 @@ Entra ID displays the TXT record values: Alias: `@`, Destination: [verification 
 
 Green notification: *'Successfully verified domain name cloudidlab.net for use within Mock test'.*
 
-![Phase 1 — Step 5: Domain Verified — Notification Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%205.png)
+![Phase 1 — Step 5: Domain Verified — Notification Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%205.png)
 
 ---
 
@@ -108,7 +108,7 @@ Green notification: *'Successfully verified domain name cloudidlab.net for use w
 
 `cloudidlab.net` shows: Type: Custom, Status: **Verified**, Primary domain: No (before promotion).
 
-![Phase 1 — Step 6: Domain Properties — Verified Status](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%206.png)
+![Phase 1 — Step 6: Domain Properties — Verified Status](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%206.png)
 
 ---
 
@@ -116,7 +116,7 @@ Green notification: *'Successfully verified domain name cloudidlab.net for use w
 
 *'Do you want to make cloudidlab.net your primary domain?'* → **Yes**.
 
-![Phase 1 — Step 7: Make Primary — Confirmation Dialog](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%207.png)
+![Phase 1 — Step 7: Make Primary — Confirmation Dialog](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%207.png)
 
 ---
 
@@ -124,7 +124,7 @@ Green notification: *'Successfully verified domain name cloudidlab.net for use w
 
 Green notification: *'Domain name cloudidlab.net has been made primary of Mock test'*. Primary domain: **Yes**.
 
-![Phase 1 — Step 8: Primary Domain Set — Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%201-Step%208.png)
+![Phase 1 — Step 8: Primary Domain Set — Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%201-Step%208.png)
 
 ---
 
@@ -136,7 +136,7 @@ The internal `corp.local` suffix is non-routable and unrecognised by Entra ID. T
 
 **Server Manager → Tools → Active Directory Domains and Trusts** (or `Win+R` → `domain.msc`). `corp.local` forest visible.
 
-![Phase 2 — Step 1: Open Active Directory Domains and Trusts on DC1](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%202-Step%201.png)
+![Phase 2 — Step 1: Open Active Directory Domains and Trusts on DC1](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%202-Step%201.png)
 
 ---
 
@@ -144,7 +144,7 @@ The internal `corp.local` suffix is non-routable and unrecognised by Entra ID. T
 
 **Right-click root node → Properties → Alternative UPN Suffixes** → type `cloudidlab.net` → **Add**. Confirmed in list (highlighted blue).
 
-![Phase 2 — Step 2: Add cloudidlab.net as Alternative UPN Suffix](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%202-Step%202.png)
+![Phase 2 — Step 2: Add cloudidlab.net as Alternative UPN Suffix](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%202-Step%202.png)
 
 ---
 
@@ -152,7 +152,7 @@ The internal `corp.local` suffix is non-routable and unrecognised by Entra ID. T
 
 `Get-ADUser -Filter * | Select-Object Name, UserPrincipalName` confirms: John Smith and Jane Doe updated to `@cloudidlab.net`. IT Admin intentionally left on `@corp.local` to test sync behaviour.
 
-![Phase 2 — Step 3: Verify Updated UPN Suffixes in PowerShell](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%202-Step%203.png)
+![Phase 2 — Step 3: Verify Updated UPN Suffixes in PowerShell](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%202-Step%203.png)
 
 > 🧪 **Deliberate Test:** IT Admin was intentionally left with `@corp.local` UPN. Result: Entra ID synced the account but substituted the UPN to `itadmin@Mocktest909.onmicrosoft.com` — a real-world behaviour fully documented in Phase 4.
 
@@ -166,7 +166,7 @@ The **Customize** path was chosen (not Express Settings) due to the non-routable
 
 **entra.microsoft.com → Microsoft Entra Connect → Get started → Connect Sync section → Download Connect Sync Agent.**
 
-![Phase 3 — Step 1: Download Connect Sync Agent from Entra Admin Center](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%201.png)
+![Phase 3 — Step 1: Download Connect Sync Agent from Entra Admin Center](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%201.png)
 
 ---
 
@@ -174,7 +174,7 @@ The **Customize** path was chosen (not Express Settings) due to the non-routable
 
 `AzureADConnect.msi` (148,332 KB / ~145 MB) downloaded to the Downloads folder on DC1.
 
-![Phase 3 — Step 2: AzureADConnect.msi Downloaded Successfully](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%202.png)
+![Phase 3 — Step 2: AzureADConnect.msi Downloaded Successfully](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%202.png)
 
 ---
 
@@ -182,7 +182,7 @@ The **Customize** path was chosen (not Express Settings) due to the non-routable
 
 Orange warning: *'corp.local is not a routable domain. It is recommended to use custom settings.'* Decision: click **Customize**.
 
-![Phase 3 — Step 3: Express Settings — corp.local Non-Routable Warning](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%203.png)
+![Phase 3 — Step 3: Express Settings — corp.local Non-Routable Warning](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%203.png)
 
 ---
 
@@ -190,7 +190,7 @@ Orange warning: *'corp.local is not a routable domain. It is recommended to use 
 
 No existing sync service found. All optional checkboxes left unticked. Fresh clean install. Click **Install**.
 
-![Phase 3 — Step 4: Required Components — All Defaults](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%204.png)
+![Phase 3 — Step 4: Required Components — All Defaults](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%204.png)
 
 ---
 
@@ -198,7 +198,7 @@ No existing sync service found. All optional checkboxes left unticked. Fresh cle
 
 **Password Hash Synchronisation** selected. **Enable single sign-on** ticked. Correct auth method for this topology.
 
-![Phase 3 — Step 5: User Sign-In — Password Hash Sync + Seamless SSO](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%205.png)
+![Phase 3 — Step 5: User Sign-In — Password Hash Sync + Seamless SSO](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%205.png)
 
 ---
 
@@ -206,7 +206,7 @@ No existing sync service found. All optional checkboxes left unticked. Fresh cle
 
 Enter Global Admin credentials: `OmokoredeOludairo@Mocktest909.onmicrosoft.com` (`.onmicrosoft.com` used as root admin account).
 
-![Phase 3 — Step 6: Connect to Microsoft Entra ID](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%206.png)
+![Phase 3 — Step 6: Connect to Microsoft Entra ID](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%206.png)
 
 ---
 
@@ -214,7 +214,7 @@ Enter Global Admin credentials: `OmokoredeOludairo@Mocktest909.onmicrosoft.com` 
 
 Active Directory type auto-detected. Forest: `corp.local` in dropdown. Click **Add Directory**.
 
-![Phase 3 — Step 7: Connect Directories — corp.local Detected](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%207.png)
+![Phase 3 — Step 7: Connect Directories — corp.local Detected](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%207.png)
 
 ---
 
@@ -222,7 +222,7 @@ Active Directory type auto-detected. Forest: `corp.local` in dropdown. Click **A
 
 **Create new AD account** selected. Enterprise Admin: `CORP\azureadmin`. Entra Connect creates a dedicated `MSOL_` sync service account.
 
-![Phase 3 — Step 8: AD Forest Account — Create New AD Account](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%208.png)
+![Phase 3 — Step 8: AD Forest Account — Create New AD Account](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%208.png)
 
 ---
 
@@ -230,7 +230,7 @@ Active Directory type auto-detected. Forest: `corp.local` in dropdown. Click **A
 
 Configured Directories: `corp.local (Active Directory)` with green tick. Next button activated.
 
-![Phase 3 — Step 9: corp.local Connected — Green Tick Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%209.png)
+![Phase 3 — Step 9: corp.local Connected — Green Tick Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%209.png)
 
 ---
 
@@ -240,7 +240,7 @@ UPN table: `corp.local` = Not Added, `cloudidlab.net` = Verified. *'Continue wit
 
 > **Why this is acceptable:** Accounts with a `corp.local` UPN will receive a fallback `onmicrosoft.com` UPN in Entra ID — as demonstrated by the IT Admin account in Phase 4.
 
-![Phase 3 — Step 10: Entra Sign-In Config — UPN Suffix Mapping](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%2010.png)
+![Phase 3 — Step 10: Entra Sign-In Config — UPN Suffix Mapping](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%2010.png)
 
 ---
 
@@ -248,7 +248,7 @@ UPN table: `corp.local` = Not Added, `cloudidlab.net` = Verified. *'Continue wit
 
 Users represented only once across all directories. Let Azure manage the source anchor. Defaults correct for single forest.
 
-![Phase 3 — Step 11: Uniquely Identifying Users](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%2011.png)
+![Phase 3 — Step 11: Uniquely Identifying Users](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%2011.png)
 
 ---
 
@@ -256,7 +256,7 @@ Users represented only once across all directories. Let Azure manage the source 
 
 Only **Password Hash Synchronisation** ticked. All other features left off.
 
-![Phase 3 — Step 12: Optional Features — Password Hash Sync Only](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%2012.png)
+![Phase 3 — Step 12: Optional Features — Password Hash Sync Only](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%2012.png)
 
 ---
 
@@ -264,7 +264,7 @@ Only **Password Hash Synchronisation** ticked. All other features left off.
 
 Summary: Sync services, SSO, Source Anchor, Mocktest909 AAD Connector, corp.local Connector, PHS, Export Deletion Threshold (500). Start sync ticked. Staging mode off. Click **Install**.
 
-![Phase 3 — Step 13: Ready to Configure — Final Summary](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%203-Step%2013.png)
+![Phase 3 — Step 13: Ready to Configure — Final Summary](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%203-Step%2013.png)
 
 ---
 
@@ -282,7 +282,7 @@ Filter: On-premises sync enabled == Yes → **3 users found.**
 | Jane Doe | jdoe@cloudidlab.net | Yes |
 | IT Admin | itadmin@Mocktest909.onmicrosoft.com | Yes (UPN auto-substituted) |
 
-![Phase 4 — Step 1: Entra ID Users — 3 Synced Users Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%204-Step%201.png)
+![Phase 4 — Step 1: Entra ID Users — 3 Synced Users Confirmed](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%204-Step%201.png)
 
 ---
 
@@ -298,7 +298,7 @@ Filter: On-premises sync enabled == Yes → **3 users found.**
 | Domain | corp.local |
 | Immutable ID | Confirmed |
 
-![Phase 4 — Step 2: John Smith Profile — Full Hybrid Identity Data](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%204-Step%202.png)
+![Phase 4 — Step 2: John Smith Profile — Full Hybrid Identity Data](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%204-Step%202.png)
 
 ---
 
@@ -315,7 +315,7 @@ Filter: On-premises sync enabled == Yes → **3 users found.**
 
 > **Note:** `completed-no-objects` on the Mocktest909 Full Import is not an error. On a fresh install with no cloud-only users, there is nothing to import from Entra ID back to the sync engine.
 
-![Phase 4 — Step 3: Sync Service Manager — 6 Successful Operations](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%204-Step%203.png)
+![Phase 4 — Step 3: Sync Service Manager — 6 Successful Operations](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%204-Step%203.png)
 
 ---
 
@@ -327,7 +327,7 @@ Filter: On-premises sync enabled == Yes → **3 users found.**
 - Seamless SSO: **Enabled** (1 domain)
 - Federation: Disabled
 
-![Phase 4 — Step 4: Entra Connect Dashboard — Sync Enabled, PHS, SSO](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%204-Step%204.png)
+![Phase 4 — Step 4: Entra Connect Dashboard — Sync Enabled, PHS, SSO](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%204-Step%204.png)
 
 ---
 
@@ -343,7 +343,7 @@ Filter: On-premises sync enabled == Yes → **3 users found.**
 | Existing Admin Role | 0 |
 | Other | 0 |
 
-![Phase 4 — Step 5: Connect Health — Zero Sync Errors (P2 Feature)](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/screenshots/Phase%204-Step%205.png)
+![Phase 4 — Step 5: Connect Health — Zero Sync Errors (P2 Feature)](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Project-2-Hybrid-Identity-Integration/Phase%204-Step%205.png)
 
 ---
 
