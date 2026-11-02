@@ -80,8 +80,9 @@ sequenceDiagram
 **Path:** Entra ID → **Users** → John Smith → **Authentication methods** → **+ Add authentication method** → choose **Temporary Access Pass**
  
 John Smith starts with **no registered authentication methods**. The Add authentication method blade is set to *Temporary Access Pass*, with a 1-hour activation duration and one-time use left at the default **No**.
- 
- 
+
+<img width="1920" height="913" alt="2 Attempting to authenticate " src="https://github.com/user-attachments/assets/ad38f65b-46d6-42a0-a91d-a0e64e629324" />
+
 ---
  
 ### Step 2: Issuance blocked by policy
@@ -89,8 +90,9 @@ John Smith starts with **no registered authentication methods**. The Add authent
 Clicking **Add** returns the error below:
  
 > *Unable to add Temporary Access Pass. Converged UserCredentialPolicy does not allow creating or updating this authentication method. AuthMethodType [TemporaryAccessPass].*
- 
-![Phase 1 - Step 2](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%202.png)
+
+><img width="1919" height="920" alt="3 Failed Authentication Request" src="https://github.com/user-attachments/assets/e311ae78-bc94-4e22-b0a3-d31a79e0913d" />
+
  
 **🔍 Root cause:** Entra ID uses a **converged Authentication methods policy**. An administrator can't issue a credential type unless that method is enabled for the user in the tenant policy. This is a **preventive control**: per-user admin actions can't get around tenant-wide policy.
  
@@ -110,9 +112,9 @@ The policy list confirms that **Temporary Access Pass is disabled (Enabled = No)
 | **Temporary Access Pass** | — | **No** |
 | Software OATH tokens | All users | Yes |
 | Email OTP | — | Yes |
- 
-![Phase 1 - Step 3](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%203.png)
- 
+
+ <img width="1919" height="920" alt="4 Setup TAP policy" src="https://github.com/user-attachments/assets/50462b49-bfbe-4a0e-8529-554a98c86683" />
+
 ---
  
 ### Step 4: Enable the Temporary Access Pass policy
@@ -123,7 +125,8 @@ The portal confirms *"The policy was successfully saved"*, and TAP now shows **A
  
 The portal also shows a banner saying **passkey auto-enablement** will apply to this tenant: users enabled for SMS or voice will be moved onto a Microsoft-managed passkey profile. This reflects Microsoft's wider move away from phone-based authenticators towards phishing-resistant ones.
  
-![Phase 1 - Step 4](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%204.png)
+<img width="1916" height="918" alt="5 TAP Policy activated" src="https://github.com/user-attachments/assets/21357b11-6058-4d68-b630-97fd6bd78e9b" />
+
  
 > ⚠️ Targeting **All users** was used here to get the first run working. It's flagged as a finding in the [Security Observations](#-security-observations--recommended-hardening) section.
  
@@ -143,11 +146,12 @@ This time the TAP is issued successfully. The portal shows the pass **once only*
  
 **Temporary Access Pass** now appears under John Smith's *Usable authentication methods*.
  
-![Phase 1 - Step 5](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%205.png)
+<img width="1919" height="926" alt="6 TAP access provided for user" src="https://github.com/user-attachments/assets/c5792dc7-ae49-4f00-8afc-74d41d035792" />
+
  
-> 🔒 The pass value has been **redacted** in the published screenshot. It has also expired.
+> 🔒 The pass value has been **not been redacted** in the published screenshot for learning purposes. It has also expired.
  
----
+--- 
  
 ### Step 6: User signs in with the TAP
  
@@ -155,7 +159,8 @@ This time the TAP is issued successfully. The portal shows the pass **once only*
  
 Entra ID detects an active TAP and goes **straight to the "Enter Temporary Access Pass" prompt**, without asking for a password. The password is only offered as a fallback link (*"Use your password instead"*), which shows that an active TAP takes priority in the sign-in experience.
  
-![Phase 1 - Step 6](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%206.png)
+ <img width="1916" height="908" alt="7 Testing TAP access " src="https://github.com/user-attachments/assets/a0e1048e-d1b4-4317-8633-680d1b9cdecb" />
+
  
 ---
  
@@ -167,7 +172,8 @@ The logs show John Smith's interactive sign-ins to **My Signins** and **My Profi
  
 The **Interrupted** entries are normal. They record points where Entra paused the sign-in for an extra prompt (for example, security info registration or "Stay signed in?"), and each was followed by a successful sign-in.
  
-![Phase 1 - Step 7](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%207.png)
+<img width="1916" height="919" alt="8 Sign in Log to prove access" src="https://github.com/user-attachments/assets/9242c705-bbfc-4c4f-a7e0-36c44c6f7aa9" />
+
  
 > 💡 To see which credential was used for each event, open a log entry → **Authentication Details** tab. That tab shows *Temporary Access Pass* as the method.
  
@@ -179,7 +185,8 @@ The **Interrupted** entries are normal. They record points where Entra paused th
  
 Although the sign-in logs show successful sign-ins, the user overview still shows **Last interactive sign-in: -- --**. This tile is filled from a separate activity property that **updates later than the sign-in logs**, so it can stay blank for some time after the first sign-in.
  
-![Phase 1 - Step 8](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%208.png)
+ <img width="1909" height="919" alt="1 Created a user " src="https://github.com/user-attachments/assets/c47cd9aa-2391-40d2-b318-3a6b4530eb42" />
+
  
 > 📝 **Lesson:** For audit or investigation work, use the **sign-in logs** as the source of truth, not summary tiles on the user object.
  
