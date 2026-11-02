@@ -81,7 +81,6 @@ sequenceDiagram
  
 John Smith starts with **no registered authentication methods**. The Add authentication method blade is set to *Temporary Access Pass*, with a 1-hour activation duration and one-time use left at the default **No**.
  
-![Phase 1 - Step 1](https://raw.githubusercontent.com/oludairo1/azure-cloud-lab-series/main/Side-Project-TAP-Passwordless-Onboarding/Phase%201-Step%201.png)
  
 ---
  
